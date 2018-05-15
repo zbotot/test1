@@ -2731,11 +2731,28 @@ def bot(op):
                                 print error
                                 nadya.sendText(msg.to,"Upload image failed.")
 
-            elif msg.text.lower() in ["pap owner","pap creator"]:
-                                link = ["http://dl.profile.line-cdn.net/0hXvsxbt5qB1lOASvik5B4DnJECTQ5LwERNmdAb2wDW25gMkNbJTNAOjtTCz1jYkELJzJKNzkAUWxi"]
-                                pilih = random.choice(link)
-                                nadya.sendImageWithURL(msg.to,pilih)
+            #elif msg.text.lower() in ["pap owner","pap creator"]:
+                               # link = ["http://dl.profile.line-cdn.net/0hXvsxbt5qB1lOASvik5B4DnJECTQ5LwERNmdAb2wDW25gMkNbJTNAOjtTCz1jYkELJzJKNzkAUWxi"]
+                                #pilih = random.choice(link)
+                               # nadya.sendImageWithURL(msg.to,pilih)
+				                 # cl.sendText(msg.to,"Upload image failed.")
 
+            elif msg.text.lower() in ["pap owner","pap creator"]:
+                                nadya.sendImageWithURL(msg.to,"http://dl.profile.line-cdn.net/0h7_5DqmmMaHAIPUTvZDgXJzR4Zh1_E244cF0uESg_Y0EtWSolZFkgHy86ZkAjX30uNFIvES9tPxMj")
+
+#---------------------------------
+#----------------------------------------------------------
+            elif msg.text.lower() in ["me"]:
+                msg.contentType = 13
+                msg.contentMetadata = {'mid': msg.from_}
+                nadya.sendMessage(msg)
+                h = nadya.getContact(msg.from_)
+                nadya.sendImageWithURL(msg.to,"http://dl.profile.line-cdn.net/" + h.pictureStatus)
+                h = nadya.getContact(msg.from_)
+                cu = nadya.channel.getCover(msg.from_)          
+                path = str(cu)
+                nadya.sendImageWithURL(msg.to, path)
+#-------------
  
             elif "Spam: " in msg.text:
                   bctxt = msg.text.replace("Spam: ", "")
