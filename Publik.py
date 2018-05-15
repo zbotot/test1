@@ -457,7 +457,7 @@ def bot(op):
 		#if op.param2 in Creator:
 		#    cl.acceptGroupInvitation(op.param1)
 		#    xname = cl.getContact(op.param2).displayName
-		#    cl.sendText(op.param1,"Thanks admin, " + "@"+xname+"\n\n ☆Ketik ☞Help☜ Untuk Bantuan☆\n☆Harap Gunakan Dengan Bijak ^_^ ☆")
+		#    cl.sendText(op.param1,"Thanks admin, " + "@"+xname+"\n\n 『Ketik ☞Help』 Untuk Bantuan\nHarap Gunakan Dengan Bijak")
             if op.param3 in Amid:
 		if op.param2 in Creator:
 		    ki.acceptGroupInvitation(op.param1)
@@ -569,7 +569,7 @@ def bot(op):
               #kr.sendText(op.param1,"Nama Grup: " + kr.getGroup(op.param1).name + "\nJumlah Member: " + str(len (kr.getGroup(op.param1).members)) + " orang\n\n")
               xname = cl.getContact(op.param2).displayName
               xlen = str(len(xname)+1)
-              cl.sendText(op.param1,"PRANKBOTS \n━━━━━━━━━━━━━━━━━\nNama Grup: " + cl.getGroup(op.param1).name + "\n Member: " + str(len (cl.getGroup(op.param1).members)) + " orang\n\nMaaf,  @"+xname+ "\nmember kurang dari 30 org\nUntuk info,Silahkan Pc owner bot kami.\n╔═════════════\n╠➣✍͡➴͜Ĝα₤αηĸ͜͡✫\n╚═════════════\nline.me/ti/p/~fuck.you__")
+              cl.sendText(op.param1,"TΣΔM SLΔCҜβΩT\n══════════════════\nNama Grup: " + cl.getGroup(op.param1).name + "\n Member: " + str(len (cl.getGroup(op.param1).members)) + " orang\n\nMaaf,  @"+xname+ "\nmember kurang dari 30 org\nUntuk info,Silahkan Pc owner bot kami.\n╔═════════════\n╠➣✍͡➴͜Ĝα₤αηĸ͜͡✫\n╚═════════════\nline.me/ti/p/~fuck.you__")
               hanna = Message(to=op.param1, from_=None, text=None, contentType=13)
               hanna.contentMetadata={'mid': admin}
               cl.sendMessage(hanna)
