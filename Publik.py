@@ -2610,8 +2610,8 @@ def bot(op):
 
             elif msg.text.lower() == "Creator": #Ngirim Semua Kontak Bot
                     msg.contentType = 13
-                    msg.contentMetadata = {'mid': "ufce863f62f40706c01fa4a3c3c4cb096"}
-                    cl.sendText(msg.to, "Jangan Lupa di Add Ya kak ")
+                    msg.contentMetadata = {'mid': "u78643d09e42a36836a17cc918963a8b7"}
+                    cl.sendText(msg.to, "Jangan Lupa di Add Ya kak MyBoss\n╔═════════════\n╠➣『✍͡➴͜Ĝα₤αηĸ͜͡✫』\n╚═════════════\nDi Add Ya Kak")
                     cl.sendMessage(msg)
 
 #--------------------------------------------------------
@@ -3131,7 +3131,7 @@ def bot(op):
                                 cl.sendText(msg.to,"Upload image failed.")
 
             elif msg.text.lower() in ["pap owner","pap creator"]:
-                                cl.sendImageWithURL(msg.to,"http://dl.profile.line-cdn.net/0hQHBfiuxIDmd_HyI5amNxMENaAAoIMQgvBywTVFNIAgRTLk9kRHBCAlkcAFMGKkBiS3hAUQgbBVFU")
+                                cl.sendImageWithURL(msg.to,"http://dl.profile.line-cdn.net/0h7_5DqmmMaHAIPUTvZDgXJzR4Zh1_E244cF0uESg_Y0EtWSolZFkgHy86ZkAjX30uNFIvES9tPxMj")
 
 #--------------------------------------------------------
             elif "S89m " in msg.text:
@@ -3362,7 +3362,7 @@ def bot(op):
                 middd = "Name : " +cl.getContact(msg.from_).displayName + "\nMid : " +msg.from_
                 cl.sendText(msg.to,middd)
 #----------------------------------------------------------
-            elif msg.text.lower() in ["/me"]:
+            elif msg.text.lower() in ["me"]:
                 msg.contentType = 13
                 msg.contentMetadata = {'mid': msg.from_}
                 cl.sendMessage(msg)
@@ -3373,6 +3373,18 @@ def bot(op):
                 path = str(cu)
                 cl.sendImageWithURL(msg.to, path)
 #----------------------------------------------------------
+#----------------------------------------------------------
+            elif msg.text.lower() in ["Me"]:
+                msg.contentType = 13
+                msg.contentMetadata = {'mid': msg.from_}
+                cl.sendMessage(msg)
+                h = cl.getContact(msg.from_)
+                cl.sendImageWithURL(msg.to,"http://dl.profile.line-cdn.net/" + h.pictureStatus)
+                h = cl.getContact(msg.from_)
+                cu = cl.channel.getCover(msg.from_)          
+                path = str(cu)
+                cl.sendImageWithURL(msg.to, path)
+#-------------
             elif "/apakah " in msg.text:
                 apk = msg.text.replace("/apakah ","")
                 rnd = ["Ya","Tidak","Bisa Jadi","Mungkin"]
