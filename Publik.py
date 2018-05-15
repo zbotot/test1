@@ -12,10 +12,10 @@ from googletrans import Translator
 import time,random,sys,json,codecs, threading,glob,urllib,urllib2,urllib3,re,ast,os, subprocess,requests,tempfile
 
 cl = LINETCR.LINE()
-cl.login(token="token bot")
+cl.login(token="Esy0CmHLoQVSNdpNhOa2.orQ1PYNjeHufBIT9Bg+WSG.2IZC9ebSpcMVP+Y5RvOMNTJQ2IIugMpOjQx44dGwZcc=")
 #cl.login(token='TOKEN_HERE')
 cl.loginResult()
-print "PUBLICK PRANKBOTS SUCCESS LOGIN\nSELAMAT MENGGUNAKAN"
+print "╔═════════════\n╠➣SUCCESS LOGIN\n╚═════════════\nSELAMAT MENGGUNAKAN BOT PUBLIK"
 
 
 reload(sys)
