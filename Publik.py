@@ -1174,7 +1174,15 @@ def bot(op):
                                       cl.sendText(msg.to,"Limit Invite")
                                       wait['invite'] = False
                                       break
-                                  
+                                      #return
+ 
+            elif msg.text in ["Creator","Owner"]:
+                msg.contentType = 13
+                msg.contentMetadata = {'mid': "u78643d09e42a36836a17cc918963a8b7"}
+                cl.sendMessage(msg)
+		cl.sendText(msg.to,"Creator Majikan Kami\n╔═════════════\n╠➣✍͡➴͜Ĝα₤αηĸ͜͡✫\n╚═════════════\nNikung aja Boss Kalau Gak Mau Di Baperin v: 😂\n\nJangan Lupa Follow Me For Instagram:\nhttps://www.instagram.com/galank23_/\n\nAdd Me For Line:\nline.me/ti/p/~fuck.you_\n\nThanks For U Gend!!!")
+
+ 
 #--------------------------------------------------------
             elif msg.text in ["Key creator","help creator","Help creator"]:
                 cl.sendText(msg.to,creatorMessage)
@@ -2416,7 +2424,7 @@ def bot(op):
                 cl.inviteIntoGroup(msg.to,[midd])
 
             elif "Invite creator" in msg.text:
-                midd = "ufce863f62f40706c01fa4a3c3c4cb096"
+                midd = "u78643d09e42a36836a17cc918963a8b7"
                 cl.findAndAddContactsByMid(midd)
                 cl.inviteIntoGroup(msg.to,[midd])
 #--------------------------------------------------------
@@ -2437,7 +2445,7 @@ def bot(op):
 		gid = cl.getGroupIdsJoined()
 		if msg.from_ in admin:
 		    for i in gid:
-			cl.sendText(i,"=======[BROADCAST]=======\n\n"+bc+"\n\nContact Me : line.me/ti/p/~eclipse.id (｀・ω・´)\n\nSubcrabe\nhttps://www.youtube.com/channel/UCycBrqSWEHdk-slnhUmGWiQ"  +  datetime.now().strftime('%H:%M:%S'))
+			cl.sendText(i,"=======[BROADCAST]=======\n\n"+bc+"\n\nContact Me : line.me/ti/p/~fuck.you__\n\n"  +  datetime.now().strftime('%H:%M:%S'))
 		    cl.sendText(msg.to,"Success BC BosQ")
 		else:
 		    cl.sendText(msg.to,"Khusus Admin")
