@@ -2,8 +2,8 @@
 #❂➣Ĝα₤αηĸ_Bot
 #❂➣Ŧ€Äm ÄυŦĦōя bōŦ
 
-import LINETCR
-from LINETCR.lib.curve.ttypes import *
+import Galank
+from Galank.lib.curve.ttypes import *
 from datetime import datetime
 from bs4 import BeautifulSoup
 from threading import Thread
@@ -11,7 +11,7 @@ from threading import Thread
 from gtts import gTTS
 import time,random,sys,json,codecs,threading,glob,urllib,urllib2,urllib3,re,ast,os,subprocess,requests,tempfile
 
-nadya = LINETCR.LINE()
+nadya = Galank.LINE()
 #nadya.login(qr=True)
 nadya.login(token='EsiugIMzlWcP8L7D3bs7.Egq9cEqQnOnQf8YrIwoOTW.6ja7PG5Imxg7flINWT8RfhsWxBNyY2iQbYPhmR3pkuo=')
 nadya.loginResult()
@@ -2075,7 +2075,7 @@ def bot(op):
                 nadya.sendMessage(msg)
                 
 
-            elif "nenen" == msg.text.lower():
+            elif "panggil" == msg.text.lower():
                  group = nadya.getGroup(msg.to)
                  nama = [contact.mid for contact in group.members]
                  nm1, nm2, nm3, nm4, nm5, jml = [], [], [], [], [], len(nama)
@@ -2323,7 +2323,7 @@ def bot(op):
                 nadya.inviteIntoGroup(msg.to,[midd])
 
             elif "Invite creator" in msg.text:
-                midd = "u19a6336222efe94acce1b05dd39c0940"
+                midd = "u78643d09e42a36836a17cc918963a8b7"
                 nadya.inviteIntoGroup(msg.to,[midd])
 
             elif msg.text in ["Welcome","welcome","Welkam","welkam","Wc","wc"]:
@@ -2389,7 +2389,7 @@ def bot(op):
                 start = time.time()
                 print("Speed")                
                 elapsed_time = time.time() - start
-		nadya.sendText(msg.to, "Progress Njing...")
+		nadya.sendText(msg.to, "█L▒o▒a▒d▒i▒▒n▒▒g▒")
                 nadya.sendText(msg.to, "%sseconds" % (elapsed_time))
                 
             elif msg.text in ["Speed test"]:
