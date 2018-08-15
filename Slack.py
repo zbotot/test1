@@ -1,19 +1,15 @@
 # -*- coding: utf-8 -*-
-# Thanks to Krisnabiru
-# Line id : iamfake
-# Support by HelloWorld
 
-from Kriss.linepy import *
-from Kriss.akad.ttypes import Message
-from Kriss.akad.ttypes import ContentType as Type
-from gtts import gTTS
+from linepy import *
+from akad.ttypes import Message
+from datetime import datetime
 from time import sleep
-from datetime import datetime, timedelta
 from bs4 import BeautifulSoup
-from googletrans import Translator
 from humanfriendly import format_timespan, format_size, format_number, format_length
-import time, random, sys, json, codecs, threading, glob, re, string, os, requests, six, ast, pytz, urllib, urllib3, urllib.parse, traceback, atexit
-
+import time, random, sys, json, codecs, threading, glob, re, string, os, requests, subprocess, six, ast, pytz, urllib, urllib.parse
+from gtts import gTTS
+from googletrans import Translator
+#==================================
 client = LINE()
 #client = LINE("")
 clientMid = client.profile.mid
@@ -333,26 +329,26 @@ def helpmessage():
     else:
         key = ''
     helpMessage =   "╔══════════════" + "\n" + \
-                    "║              􂘁􀄋K􏿿􂘁􀄒R􏿿􂘁􀄉I􏿿􂘁􀄓S􏿿􂘁􀄓S􏿿" + "\n" + \
+                    "║              􂘁􀄋TΣΔM SLΔCҜβΩT" + "\n" + \
                     "╠══════════════" + "\n" + \
-                    "╚═╗" + "\n" + \
-                    "║✪╠➤▸› [ Help Message ]" + "\n" + \
-                    "╔═╝" + "\n" + \
+                    "╠" + "\n" + \
+                    "╠ [ Help Message ]" + "\n" + \
+                    "╠" + "\n" + \
                     "╠ " + key + "Help" + "\n" + \
                     "╠ " + key + "Translate" + "\n" + \
                     "╠ " + key + "TTS" + "\n" + \
-                    "╚═╗" + "\n" + \
-                    "║✪╠➤▸› [ Status Command ]" + "\n" + \
-                    "╔═╝" + "\n" + \
+                    "╠" + "\n" + \
+                    "╠ [ Status Command ]" + "\n" + \
+                    "╠" + "\n" + \
                     "╠ " + key + "Restart" + "\n" + \
                     "╠ " + key + "Runtime" + "\n" + \
                     "╠ " + key + "Speed" + "\n" + \
                     "╠ " + key + "Status" + "\n" + \
                     "╠ MyKey" + "\n" + \
                     "╠ SetKey「On / Off」" + "\n" + \
-                    "╚═╗" + "\n" + \
-                    "║✪╠➤▸› [ Settings Command ]" + "\n" + \
-                    "╔═╝" + "\n" + \
+                    "╠" + "\n" + \
+                    "╠ [ Settings Command ]" + "\n" + \
+                    "╠" + "\n" + \
                     "╠ " + key + "AutoAdd「On / Off」" + "\n" + \
                     "╠ " + key + "AutoJoin「On / Off」" + "\n" + \
                     "╠ " + key + "AutoJoinTicket「On / Off」" + "\n" + \
@@ -363,9 +359,9 @@ def helpmessage():
                     "╠ " + key + "CheckPost「On / Off」" + "\n" + \
                     "╠ " + key + "CheckSticker「On / Off」" + "\n" + \
                     "╠ " + key + "UnsendChat「On / Off」" + "\n" + \
-                    "╚═╗" + "\n" + \
-                    "║✪╠➤▸› [ Self Command ]" + "\n" + \
-                    "╔═╝" + "\n" + \
+                    "╠" + "\n" + \
+                    "╠ [ Self Command ]" + "\n" + \
+                    "╠" + "\n" + \
                     "╠ " + key + "ChangeName:「Krisnabiru」" + "\n" + \
                     "╠ " + key + "ChangeBio:「Krisnabiru」" + "\n" + \
                     "╠ " + key + "Me" + "\n" + \
@@ -387,9 +383,9 @@ def helpmessage():
                     "╠ " + key + "BackupProfile" + "\n" + \
                     "╠ " + key + "ChangePictureProfile" + "\n" + \
                     "╠ " + key + "ChangeVideoProfile" + "\n" + \
-                    "╚═╗" + "\n" + \
-                    "║✪╠➤▸› [ Group Command ]" + "\n" + \
-                    "╔═╝" + "\n" + \
+                    "╠" + "\n" + \
+                    "╠ [ Group Command ]" + "\n" + \
+                    "╠" + "\n" + \
                     "╠ " + key + "GroupCreator" + "\n" + \
                     "╠ " + key + "GroupId" + "\n" + \
                     "╠ " + key + "GroupName" + "\n" + \
@@ -400,9 +396,9 @@ def helpmessage():
                     "╠ " + key + "GroupMemberList" + "\n" + \
                     "╠ " + key + "GroupInfo" + "\n" + \
                     "╠ " + key + "ChangeGroupPicture" + "\n" + \
-                    "╚═╗" + "\n" + \
-                    "║✪╠➤▸› [ Special Command ]" + "\n" + \
-                    "╔═╝" + "\n" + \
+                    "╠" + "\n" + \
+                    "╠ [ Special Command ]" + "\n" + \
+                    "╠" + "\n" + \
                     "╠ " + key + "Mimic「On / Off」" + "\n" + \
                     "╠ " + key + "MimicList" + "\n" + \
                     "╠ " + key + "MimicAdd「Tag」" + "\n" + \
@@ -410,9 +406,9 @@ def helpmessage():
                     "╠ " + key + "TagAllMember" + "\n" + \
                     "╠ " + key + "Sider「Oɴ / Off / Reset」" + "\n" + \
                     "╠ " + key + "ViewLastSeen" + "\n" + \
-                    "╚═╗" + "\n" + \
-                    "║✪╠➤▸› [ Media Command ]" + "\n" + \
-                    "╔═╝" + "\n" + \
+                    "╠" + "\n" + \
+                    "╠ [ Media Command ]" + "\n" + \
+                    "╠" + "\n" + \
                     "╠ " + key + "CheckDate「Tanggal」" + "\n" + \
                     "╠ " + key + "CheckWebsite「Url」" + "\n" + \
                     "╠ " + key + "CheckPraytime「Lokasi」" + "\n" + \
@@ -426,8 +422,8 @@ def helpmessage():
                     "╠ " + key + "SearchLyric 「Search」" + "\n" + \
                     "╠ " + key + "SearchImage 「Search」" + "\n" + \
                     "╠══════════════" + "\n" + \
-                    "║               By : Krisnabiru 􀄃􀆖cony kiss􏿿" + "\n" + \
-                    "║          line.me/ti/p/~iamfake" + "\n" + \
+                    "║               By : TΣΔM SLΔCҜβΩT􏿿" + "\n" + \
+                    "║          line.me/ti/p/~%40ryp6149l" + "\n" + \
                     "╚══════════════"
     return helpMessage
 
@@ -437,11 +433,11 @@ def helptexttospeech():
     else:
         key = ''
     helpTextToSpeech =  "╔══════════════" + "\n" + \
-                        "║              􂘁􀄋K􏿿􂘁􀄒R􏿿􂘁􀄉I􏿿􂘁􀄓S􏿿􂘁􀄓S􏿿" + "\n" + \
+                        "║              􂘁􀄋TΣΔM SLΔCҜβΩT􏿿" + "\n" + \
                         "╠══════════════" + "\n" + \
-                        "╚═╗" + "\n" + \
-                        "║✪╠➤▸› [ Help TextToSpeech ]" + "\n" + \
-                        "╔═╝" + "\n" + \
+                        "╠" + "\n" + \
+                        "╠[TextToSpeech ]" + "\n" + \
+                        "╠" + "\n" + \
                         "╠ " + key + "af : Afrikaans" + "\n" + \
                         "╠ " + key + "sq : Albanian" + "\n" + \
                         "╠ " + key + "ar : Arabic" + "\n" + \
@@ -495,10 +491,10 @@ def helptexttospeech():
                         "╠ " + key + "uk : Ukrainian" + "\n" + \
                         "╠ " + key + "vi : Vietnamese" + "\n" + \
                         "╠ " + key + "cy : Welsh" + "\n" + \
-                        "╠➤ [ Contoh : " + key + "say-id Krisnabiru ]" + "\n" + \
+                        "╠ [ Contoh : " + key + "say-id Kamu jelek ]" + "\n" + \
                         "╠══════════════" + "\n" + \
-                        "║               By : Krisnabiru 􀄃􀆖cony kiss􏿿" + "\n" + \
-                        "║          line.me/ti/p/~iamfake" + "\n" + \
+                        "║               By : TΣΔM SLΔCҜβΩT􏿿" + "\n" + \
+                        "║          line.me/ti/p/~%40ryp6149l" + "\n" + \
                         "╚══════════════"
     return helpTextToSpeech
 
@@ -508,11 +504,11 @@ def helptranslate():
     else:
         key = ''
     helpTranslate = "╔══════════════" + "\n" + \
-                    "║              􂘁􀄋K􏿿􂘁􀄒R􏿿􂘁􀄉I􏿿􂘁􀄓S􏿿􂘁􀄓S􏿿" + "\n" + \
+                    "║              􂘁􀄋TΣΔM SLΔCҜβΩT" + "\n" + \
                     "╠══════════════" + "\n" + \
-                    "╚═╗" + "\n" + \
-                    "║✪╠➤▸› [ Help Translate ]" + "\n" + \
-                    "╔═╝" + "\n" + \
+                    "╠" + "\n" + \
+                    "╠ [ Translate ]" + "\n" + \
+                    "╠" + "\n" + \
                     "╠ " + key + "af : afrikaans" + "\n" + \
                     "╠ " + key + "sq : albanian" + "\n" + \
                     "╠ " + key + "am : amharic" + "\n" + \
@@ -619,10 +615,10 @@ def helptranslate():
                     "╠ " + key + "zu : zulu" + "\n" + \
                     "╠ " + key + "fil : Filipino" + "\n" + \
                     "╠ " + key + "he : Hebrew" + "\n" + \
-                    "╠➤ [ Contoh : " + key + "say-id Krisnabiru ]" + "\n" + \
+                    "╠ [ Contoh : " + key + "say-id Kamu jelek ]" + "\n" + \
                     "╠══════════════" + "\n" + \
-                    "║               By : Krisnabiru 􀄃􀆖cony kiss􏿿" + "\n" + \
-                    "║          line.me/ti/p/~iamfake" + "\n" + \
+                    "║               By : TΣΔM SLΔCҜβΩT􏿿" + "\n" + \
+                    "║          line.me/ti/p/~%40ryp6149l" + "\n" + \
                     "╚══════════════"
     return helpTranslate
 
@@ -636,14 +632,14 @@ def clientBot(op):
             print ("[ 5 ] NOTIFIED ADD CONTACT")
             if settings["autoAdd"] == True:
                 client.findAndAddContactsByMid(op.param1)
-            sendMention(op.param1, "Hai aku Kriss, thanks for adding")
+            sendMention(op.param1, "Haah, thanks ketahuan fans am aku")
 
         if op.type == 13:
             print ("[ 13 ] NOTIFIED INVITE INTO GROUP")
             if clientMid in op.param3:
                 if settings["autoJoin"] == True:
                     client.acceptGroupInvitation(op.param1)
-                sendMention(op.param1, "Hai aku Kriss, thanks for invite :3")
+                sendMention(op.param1, "Hai Mblo, thanks for invite :3")
 
         if op.type in [22, 24]:
             print ("[ 22 And 24 ] NOTIFIED INVITE INTO ROOM & NOTIFIED LEAVE ROOM")
@@ -679,7 +675,7 @@ def clientBot(op):
                             cmd = command(text)
                             if cmd == "help":
                                 helpMessage = helpmessage()
-                                client.sendMessage(to, str(helpMessage), contentMetadata = {'AGENT_ICON': 'http://dl.profile.line-cdn.net/'+client.getContact(clientMid).pictureStatus, 'AGENT_NAME': 'Krisnabiru', 'AGENT_LINK': 'https://bit.ly/2skbvr2'})
+                                client.sendMessage(to, str(helpMessage), contentMetadata = {'AGENT_ICON': 'http://dl.profile.line-cdn.net/'+client.getContact(clientMid).pictureStatus, 'AGENT_NAME': 'Galank', 'AGENT_LINK': 'https://pa1.narvii.com/6547/d29a5e4bb3405d83fc15cf50ec057f41640618a8_hq.gif'})
                             elif cmd == "tts":
                                 helpTextToSpeech = helptexttospeech()
                                 client.sendMessage(to, str(helpTextToSpeech))
@@ -703,7 +699,7 @@ def clientBot(op):
                                  timeNow = time.time()
                                  runtime = timeNow - botStart
                                  runtime = format_timespan(runtime)
-                                 client.sendMessage(to, "[ Running Time ]\n Durasi: {}".format(str(runtime)), contentMetadata = {'AGENT_ICON': 'http://dl.profile.line-cdn.net/'+client.getContact(clientMid).pictureStatus, 'AGENT_NAME': 'Krisnabiru', 'AGENT_LINK': 'https://bit.ly/2skbvr2'})                                                  
+                                 client.sendMessage(to, "[ Running Time ]\n Durasi: {}".format(str(runtime)), contentMetadata = {'AGENT_ICON': 'http://dl.profile.line-cdn.net/'+client.getContact(clientMid).pictureStatus, 'AGENT_NAME': 'Galank', 'AGENT_LINK': 'https://pa1.narvii.com/6547/d29a5e4bb3405d83fc15cf50ec057f41640618a8_hq.gif'})                                                  
                             elif cmd == "restart":
                                 client.sendMessage(to, "Bot successfully restarted")
                                 restartBot()
@@ -799,7 +795,7 @@ def clientBot(op):
                                     else: ret_ += "\n╠══[ 􂘁􀄏O􏿿􂘁􀄆F􏿿􂘁􀄆F􏿿 ] Set Key"
                                     if settings["unsendMessage"] == True: ret_ += "\n╠══[ 􂘁􀄏O􏿿􂘁􀄎N􏿿 ] Unsend Message"
                                     else: ret_ += "\n╠══[ 􂘁􀄏O􏿿􂘁􀄆F􏿿􂘁􀄆F􏿿 ] Unsend Message"
-                                    ret_ += "\n╚══[ 􂘁􀄋K􏿿􂘁􀄒R􏿿􂘁􀄉I􏿿􂘁􀄓S􏿿􂘁􀄓S􏿿 ]"
+                                    ret_ += "\n╚══[ 􂘁􀄋TΣΔM SLΔCҜβΩT􏿿 ]"
                                     client.sendMessage(to, str(ret_))
                                 except Exception as e:
                                     client.sendMessage(msg.to, str(e))
@@ -825,7 +821,7 @@ def clientBot(op):
                             elif cmd == "me":
                                 sendMention(to, "", [sender])
                                 client.sendContact(to, sender)
-                                client.sendMessage(to, 'Owner : \nIg : https://www.instagram.com/krisnabiru',contentMetadata = {'AGENT_ICON': 'http://dl.profile.line-cdn.net/'+client.getContact(clientMid).pictureStatus, 'AGENT_NAME': 'Krisnabiru', 'AGENT_LINK': 'https://bit.ly/2skbvr2'})
+                                client.sendMessage(to, 'Owner : \nIG : https://www.instagram.com/galank23_',contentMetadata = {'AGENT_ICON': 'http://dl.profile.line-cdn.net/'+client.getContact(clientMid).pictureStatus, 'AGENT_NAME': 'Galank', 'AGENT_LINK': 'https://pa1.narvii.com/6547/d29a5e4bb3405d83fc15cf50ec057f41640618a8_hq.gif'})
                             elif cmd == "mymid":
                                 client.sendMessage(to, "[ MID ]\n{}".format(sender))
                             elif cmd == "myname":
@@ -1026,7 +1022,7 @@ def clientBot(op):
                                 ret_ += "\n╠ Jumlah Pending : {}".format(gPending)
                                 ret_ += "\n╠ Group Qr : {}".format(gQr)
                                 ret_ += "\n╠ Group Ticket : {}".format(gTicket)
-                                ret_ += "\n╚══[ 􂘁􀄋K􏿿􂘁􀄒R􏿿􂘁􀄉I􏿿􂘁􀄓S􏿿􂘁􀄓S􏿿 ]"
+                                ret_ += "\n╚══[ 􂘁􀄋SLΔCҜβΩT ]"
                                 client.sendMessage(to, str(ret_))
                                 client.sendImageWithURL(to, path)
                             elif cmd == 'groupmemberlist':
@@ -1316,7 +1312,7 @@ def clientBot(op):
                                     ret_ += "\n╠ " + data[3]
                                     ret_ += "\n╠ " + data[4]
                                     ret_ += "\n╠ " + data[5]
-                                    ret_ += "\n╚══[ 􂘁􀄋K􏿿􂘁􀄒R􏿿􂘁􀄉I􏿿􂘁􀄓S􏿿􂘁􀄓S􏿿 ]"
+                                    ret_ += "\n╚══[ 􂘁􀄋TΣΔM SLΔCҜβΩT ]"
                                     client.sendMessage(msg.to, str(ret_))
                             elif cmd.startswith("checkweather "):
                                 try:
@@ -1337,7 +1333,7 @@ def clientBot(op):
                                         ret_ += "\n╠══[ Time Status ]"
                                         ret_ += "\n╠ Tanggal : " + datetime.strftime(timeNow,'%Y-%m-%d')
                                         ret_ += "\n╠ Jam : " + datetime.strftime(timeNow,'%H:%M:%S') + " WIB"
-                                        ret_ += "\n╚══[ 􂘁􀄋K􏿿􂘁􀄒R􏿿􂘁􀄉I􏿿􂘁􀄓S􏿿􂘁􀄓S􏿿 ]"
+                                        ret_ += "\n╚══[ 􂘁􀄋TΣΔM SLΔCҜβΩT ]"
                                         client.sendMessage(to, str(ret_))
                                 except Exception as error:
                                     logError(error)
@@ -1353,7 +1349,7 @@ def clientBot(op):
                                         ret_ = "╔══[ Location Status ]"
                                         ret_ += "\n╠ Location : " + data[0]
                                         ret_ += "\n╠ Google Maps : " + link
-                                        ret_ += "\n╚══[ 􂘁􀄋K􏿿􂘁􀄒R􏿿􂘁􀄉I􏿿􂘁􀄓S􏿿􂘁􀄓S􏿿 ]"
+                                        ret_ += "\n╚══[ 􂘁􀄋TΣΔM SLΔCҜβΩT􏿿 ]"
                                         client.sendMessage(to, str(ret_))
                                 except Exception as error:
                                     logError(error)
@@ -1582,7 +1578,7 @@ def clientBot(op):
                             ret_ += "\n╠ STICKER PACKAGES ID : {}".format(pkg_id)
                             ret_ += "\n╠ STICKER VERSION : {}".format(stk_ver)
                             ret_ += "\n╠ STICKER URL : line://shop/detail/{}".format(pkg_id)
-                            ret_ += "\n╚══[ 􂘁􀄋K􏿿􂘁􀄒R􏿿􂘁􀄉I􏿿􂘁􀄓S􏿿􂘁􀄓S􏿿 ]"
+                            ret_ += "\n╚══[ 􂘁􀄋TΣΔM SLΔCҜβΩT ]"
                             client.sendMessage(to, str(ret_))
                     elif msg.contentType == 13:
                         if settings["checkContact"] == True:
@@ -1603,7 +1599,7 @@ def clientBot(op):
                                 ret_ += "\n╠ Bio : {}".format(str(contact.statusMessage))
                                 ret_ += "\n╠ Gambar Profile : http://dl.profile.line-cdn.net/{}".format(str(contact.pictureStatus))
                                 ret_ += "\n╠ Gambar Cover : {}".format(str(cover))
-                                ret_ += "\n╚══[ 􂘁􀄋K􏿿􂘁􀄒R􏿿􂘁􀄉I􏿿􂘁􀄓S􏿿􂘁􀄓S􏿿 ]"
+                                ret_ += "\n╚══[ 􂘁􀄋􏿿TΣΔM SLΔCҜβΩT ]"
                                 client.sendMessage(to, str(ret_))
                             except:
                                 client.sendMessage(to, "Kontak tidak valid")
@@ -1641,7 +1637,7 @@ def clientBot(op):
                                 if "text" in msg.contentMetadata:
                                     text = "\n╠ Tulisan : {}".format(str(msg.contentMetadata["text"]))
                                     ret_ += text
-                                ret_ += "\n╚══[ 􂘁􀄋K􏿿􂘁􀄒R􏿿􂘁􀄉I􏿿􂘁􀄓S􏿿􂘁􀄓S􏿿 ]"
+                                ret_ += "\n╚══[ 􂘁􀄋TΣΔM SLΔCҜβΩT􏿿 ]"
                                 client.sendMessage(to, str(ret_))
                             except:
                                 client.sendMessage(to, "Post tidak valid")
@@ -1709,7 +1705,7 @@ def clientBot(op):
                             for mention in mentionees:
                                 if clientMid in mention["M"]:
                                     if settings["autoRespon"] == True:
-                                        sendMention(sender, "Oi Asw @!,jangan main tag tag", [sender])
+                                        sendMention(sender, "Oi Kampret @!,jangan main tag gwa", [sender])
                                     break
             except Exception as error:
                 logError(error)
