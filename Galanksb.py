@@ -13,7 +13,7 @@ import time,random,sys,json,codecs,threading,glob,urllib,urllib2,urllib3,re,ast,
 
 nadya = Galank.LINE()
 #nadya.login(qr=True)
-nadya.login(token='EsiugIMzlWcP8L7D3bs7.Egq9cEqQnOnQf8YrIwoOTW.6ja7PG5Imxg7flINWT8RfhsWxBNyY2iQbYPhmR3pkuo=')
+nadya.login(token='EwjT1n3sVj9ReGLTseA6.HQh4RpqRYzqfruxsRHZtfG.FMBAGFejsvUIs/0SRq+QuWvX5b7akYuWpCJfZ8oTo4s=')
 nadya.loginResult()
 print "Nadya-Login Success\n\n=====[Sukses Login]====="
 
@@ -230,8 +230,8 @@ helpMessage ="""
 ╠══════════════
 ║╠➣SPECIAL THANKS TO:
 ║╠➣sᴜᴘᴘᴏʀᴛᴇᴅ ʙʏ:
-║╠➣TΣΔM SLΔCҜβΩT
-║╠➣『✍͡➴͜Ĝα₤αηĸ͜͡✫』
+║╠➣RESIDIVIS
+║╠➣『sepriche』
 ╚═════════════
 line.me/ti/p/~fuck.you__
 """
@@ -240,8 +240,8 @@ line.me/ti/p/~fuck.you__
 KAC=[nadya]
 mid = nadya.getProfile().mid
 Bots=[mid]
-Creator=["u78643d09e42a36836a17cc918963a8b7"]
-admin=["u78643d09e42a36836a17cc918963a8b7"]
+Creator=["u86a1f8acf42bc994054545d2ae1cd316"]
+admin=["u86a1f8acf42bc994054545d2ae1cd316"]
 
 contact = nadya.getProfile()
 backup1 = nadya.getProfile()
@@ -274,10 +274,10 @@ wait = {
     'sticker':False,  
     'timeline':True,
     "Timeline":True,
-    "comment":"Bot Auto Like ©By :✍͡➴͜Ĝα₤αηĸ͜͡✫\nContact Me :http://line.me/ti/p/~azhura07_",    
+    "comment":"Bot Auto Like ©By :sepriche\nContact Me :http://line.me/ti/p/~sepriche",    
     "commentOn":True,
     "commentBlack":{},
-    "message":"Thx For Add Me (^_^)\nInvite Me To Your Group ヘ(^_^)ヘ",    
+    "message":"salam....",    
     "blacklist":{},
     "wblacklist":False,
     "dblacklist":False,
